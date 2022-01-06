@@ -1,11 +1,12 @@
 const { connect, connection } = require("mongoose");
+const { MONGODB_URI } = require("./config");
 
 const connectDB = async () => {
-  await connect("mongodb://127.0.0.1:27017/taskcli");
+  await connect(MONGODB_URI);
 };
 
-connection.on("error", (err) => {
-  console.log(err);
+connection.on("error", async (err) => {
+  console.log(await err);
 });
 
 module.exports = {

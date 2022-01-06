@@ -47,8 +47,9 @@ const updateTask = async (_id, newTask) => {
   process.exit(0);
 };
 
-const deleteTask = async (_id) => {
-  await Task.findByIdAndDelete(_id);
+const deleteTask = async (index) => {
+  const tasks = await Task.find().lean();
+  await Task.findByIdAndDelete(tasks[index]._id);
   console.log("Task deleted");
   await connection.close();
   process.exit(0);

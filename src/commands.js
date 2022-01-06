@@ -45,10 +45,10 @@ program
   });
 
 program
-  .command("delete <id>")
+  .command("delete <index>")
   .alias("d")
-  .action((_id) => {
-    deleteTask(_id);
+  .action((index) => {
+    deleteTask(index);
   });
 
 program
