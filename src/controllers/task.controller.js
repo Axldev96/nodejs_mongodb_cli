@@ -11,7 +11,6 @@ const listTasks = async () => {
   const tasks = await Task.find().lean();
   console.table(
     tasks.map((task) => ({
-      _id: task._id.toString(),
       title: task.title,
       description: task.description,
     }))
